@@ -9,8 +9,6 @@ services:
 #    volumes:
 #      - ./:/todo-frontend/usr/src/app
     container_name: todo-front-dev1
-    ports:
-      - 3000:3000
   api:
     image: todo-back-dev
     build:
