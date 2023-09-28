@@ -14,4 +14,4 @@ FROM nginx:1.20-alpine as prod
 
 COPY --from=build /usr/src/app/build /usr/share/nginx/html
 
-ENV REACT_APP_BACKEND_URL=http://localhost:3001
+COPY custom-nginx.conf /etc/nginx/conf.d/default.conf
