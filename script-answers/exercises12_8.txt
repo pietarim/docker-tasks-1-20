@@ -1,0 +1,90 @@
+root@479c167578f7:/# mongosh -u root -p example
+Current Mongosh Log ID: 6512bfc488bb9ac1d05bd9ab
+Connecting to:          mongodb://<credentials>@127.0.0.1:27017/?directConnection=true&serverSelectionTimeoutMS=2000&appName=mongosh+1.10.6
+Using MongoDB:          7.0.1 
+Using Mongosh:          1.10.6
+
+For mongosh info see: https://docs.mongodb.com/mongodb-shell/
+
+
+To help improve our products, anonymous usage data is collected and sent to MongoDB periodically (https://www.mongodb.com/legal/privacy-policy).
+You can opt-out by running the disableTelemetry() command.
+
+------
+   The server generated these startup warnings when booting
+   2023-09-26T11:15:32.345+00:00: /sys/kernel/mm/transparent_hugepage/enabled is 'always'. We suggest setting it to 'never'
+   2023-09-26T11:15:32.345+00:00: vm.max_map_count is too low
+------
+
+test> show dbs
+admin         100.00 KiB
+config         72.00 KiB
+local          72.00 KiB
+the_database   56.00 KiB
+test> use the_database
+switched to db the_database
+the_database> show collections
+todos
+the_database> db.todos.find({})
+[
+  {
+    _id: ObjectId("65118a809e3bc17ac344b2f9"),
+    text: 'Read code',
+    done: true
+  },
+  {
+    _id: ObjectId("65118a809e3bc17ac344b2fa"),
+    text: 'Learn about containers',
+    done: false
+  }
+]
+the_database> db.products.insertOne({ text: "Increase the number of tools in my toolbelt", done: false })
+{
+  acknowledged: true,
+  insertedId: ObjectId("6512c15688bb9ac1d05bd9ac")
+}
+the_database> db.todos.find({})
+[
+  {
+    _id: ObjectId("65118a809e3bc17ac344b2f9"),
+    text: 'Read code',
+    done: true
+  },
+  {
+    _id: ObjectId("65118a809e3bc17ac344b2fa"),
+    text: 'Learn about containers',
+    done: false
+  }
+]
+the_database> db.todos.insertOne({ text: "Increase the number of tools in my toolbelt" done: false })
+Uncaught:
+SyntaxError: Unexpected token, expected "," (1:73)
+
+> 1 | db.todos.insertOne({ text: "Increase the number of tools in my toolbelt" done: false })
+    |                                                                          ^
+  2 |
+
+the_database> db.todos.insertOne({ text: "Increase the number of tools in my toolbelt", done: false })
+{
+  acknowledged: true,
+  insertedId: ObjectId("6512c1e688bb9ac1d05bd9ad")
+}
+the_database> db.todos.find({})
+[
+  {
+    _id: ObjectId("65118a809e3bc17ac344b2f9"),
+    text: 'Read code',
+    done: true
+  },
+  {
+    _id: ObjectId("65118a809e3bc17ac344b2fa"),
+    text: 'Learn about containers',
+    done: false
+  },
+  {
+    _id: ObjectId("6512c1e688bb9ac1d05bd9ad"),
+    text: 'Increase the number of tools in my toolbelt',
+    done: false
+  }
+]
+the_database>

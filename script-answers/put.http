@@ -1,0 +1,8 @@
+PUT http://localhost:3000/todos/65118a809e3bc17ac344b2f9 HTTP/1.1
+Content-type: application/json
+
+{
+  "_id": "65118a809e3bc17ac344b2f9",
+  "text": "Read code",
+  "done": true
+}

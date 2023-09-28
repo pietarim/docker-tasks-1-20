@@ -1,0 +1,28 @@
+# run on windows first commands are writen manually
+
+C:\Users\Omistaja\Documents>docker run -it ubuntu bash
+Unable to find image 'ubuntu:latest' locally
+latest: Pulling from library/ubuntu
+445a6a12be2b: Pull complete
+Digest: sha256:aabed3296a3d45cede1dc866a24476c4d7e093aa806263c27ddaadbdce3c1054
+Status: Downloaded newer image for ubuntu:latest
+
+##################################################
+
+Script started on 2023-09-20 19:52:46+00:00 [TERM="xterm" TTY="/dev/pts/0" COLUMNS="120" LINES="61"]
+# dir
+bin   dev  exercise  lib    lib64   media  opt   root  sbin  sys  typescript  var
+boot  etc  home      lib32  libx32  mnt    proc  run   srv   tmp  usr
+# cd usr
+# dir
+bin  games  include  lib  lib32  lib64  libexec  libx32  local  sbin  share  src
+# cd src
+# dir
+# mkdir app
+# cd app
+# touch index.js
+# dir
+index.js
+# exit
+
+Script done on 2023-09-20 19:54:17+00:00 [COMMAND_EXIT_CODE="0"]
