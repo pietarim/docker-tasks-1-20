@@ -14,4 +14,4 @@ FROM nginx:1.20-alpine as prod
 
 COPY --from=build /usr/src/app/build /usr/share/nginx/html
 
-COPY custom-nginx.conf /etc/nginx/conf.d/default.conf
+COPY nginx.conf /etc/nginx/conf.d/default.conf
