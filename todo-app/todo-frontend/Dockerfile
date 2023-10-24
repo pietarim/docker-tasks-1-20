@@ -7,6 +7,8 @@ RUN npm ci
 FROM base as test
 RUN CI=true npm run test
 
+ENV REACT_APP_API_URL=http://localhost:8080/api
+
 FROM test as build
 RUN npm run build
 

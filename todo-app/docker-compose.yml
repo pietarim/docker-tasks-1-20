@@ -4,8 +4,6 @@ services:
     build:
       context: ./todo-frontend
       dockerfile: Dockerfile
-    environment:
-      REACT_APP_API_URL: http://localhost:8080/api
     container_name: todo-front-prod
   api:
     image: todo-back-prod
@@ -18,8 +16,8 @@ services:
     container_name: todo-back-prod
   mongo:
     image: mongo
-    ports:
-      - 3456:27017
+    expose:
+      - 27017
     environment:
       MONGO_INITDB_ROOT_USERNAME: root
       MONGO_INITDB_ROOT_PASSWORD: example
@@ -41,6 +39,6 @@ services:
       - ./nginx.conf:/etc/nginx/nginx.conf:ro
     ports:
       - 8080:80
-    container_name: reverse-proxy
+    container_name: reverse-proxy2
     depends_on:
       - app

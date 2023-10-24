@@ -1,8 +1,6 @@
 import React from 'react'
 
 const Todo = ({ todo, onClickComplete, onClickDelete }) => {
-  console.log('todo')
-  console.log(todo)
   const doneInfo = (
     <>
       <span>This todo is done</span>
@@ -27,6 +25,8 @@ const Todo = ({ todo, onClickComplete, onClickDelete }) => {
         justifyContent: 'space-between',
         maxWidth: '70%',
         margin: 'auto',
+        borderBottom: '2px solid black',
+        padding: '7px 0',
       }}
     >
       <span>{todo.text}</span>

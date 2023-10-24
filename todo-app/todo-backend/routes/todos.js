@@ -5,9 +5,7 @@ const { setAsync, getAsync } = require('../redis')
 
 /* GET todos listing. */
 router.get('/', async (_, res) => {
-  console.log('kysely käynnistyy')
   const todos = await Todo.find({})
-  console.log(todos)
   res.send(todos)
 })
 
@@ -18,16 +16,12 @@ router.post('/', async (req, res) => {
     done: false,
   })
   let count = await getAsync('added_todos')
-  console.log('ensimmäinen')
-  console.log(count)
   if (!count) {
     count = 1
   } else {
     count++
   }
   await setAsync('added_todos', count)
-  console.log('toinen')
-  console.log(await getAsync('added_todos'))
   res.send(todo)
 })
 
@@ -58,18 +52,14 @@ singleRouter.get('/', async (req, res) => {
 
 /* PUT todo. */
 singleRouter.put('/', async (req, res) => {
-  console.log('put endpoint started')
   const { _id } = req.todo
   const newTodo = req.body
-  console.log(newTodo)
   try {
     const result = await Todo.findByIdAndUpdate(
       _id,
       { ...newTodo },
       { new: true }
     )
-    console.log('update kysely tapahtui juuri')
-    console.log(result)
     res.sendStatus(201)
   } catch {
     res.sendStatus(405) /* Implement this */

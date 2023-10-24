@@ -13,7 +13,7 @@ const TodoForm = ({ createTodo }) => {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} style={{marginBottom: '4px'}}>
       <input type="text" name="text" value={text} onChange={onChange} />
       <button type="submit"> Submit </button>
     </form>
